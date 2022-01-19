@@ -17,7 +17,7 @@ public:
         
         if(sum%2==1) return 0;
         
-        bool dp[n+1][sum+1];
+        bool dp[n+1][sum+1]={false};
         
         for(int i=1;i<=sum;i++)
         dp[0][i]=false;
@@ -29,10 +29,9 @@ public:
         {
             for(int j=1;j<=sum;j++)
             {
-                dp[i][j]=dp[i-1][j];
                 if(arr[i-1]<=j)
                 {
-                    dp[i][j]=dp[i][j] || dp[i-1][j-arr[i-1]];
+                    dp[i][j]=dp[i-1][j] || dp[i-1][j-arr[i-1]];
                 }
             }
         }
