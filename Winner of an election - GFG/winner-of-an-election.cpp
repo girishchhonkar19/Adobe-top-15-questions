@@ -21,22 +21,29 @@ class Solution{
         m[arr[i]]++;
         
         int ans=0;
+        string s="";
         for(auto x:m)
         {
            if(x.second>ans)
-           ans=x.second;
+           {
+               ans=x.second;
+               s=x.first;
+           }
+           
            
         }
+        
         for(auto x:m)
         {
             if(x.second==ans)
             {
-                res.push_back(x.first);
-            res.push_back(to_string(ans));
-            return res;
+                if(s.compare(x.first)>0)
+                s=x.first;
             }
             
         }
+            res.push_back(s);
+            res.push_back(to_string(ans));
         return res;
     }
 };
