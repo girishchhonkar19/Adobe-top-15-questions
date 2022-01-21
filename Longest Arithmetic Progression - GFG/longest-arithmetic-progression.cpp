@@ -37,7 +37,7 @@ public:
                     k++;
                 }
             }
-            while(i>=0)
+           while(i>=0)
             {
                dp[i][j]=2;
                i--;
